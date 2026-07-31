@@ -1,0 +1,18 @@
+namespace: default
+
+image:
+  repository: dunglas/frankenphp
+  tag: php8.5-alpine
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+
+host: localhost
+# hostPath: "" — set for local dev volume mount
+
+gateway:
+  name: traefik-gateway
+  namespace: default
+
+domain: localhost
