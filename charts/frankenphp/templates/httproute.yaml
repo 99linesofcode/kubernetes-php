@@ -5,11 +5,11 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   parentRefs:
-    - name: {{ .Values.gateway.name }}
-      namespace: {{ .Values.gateway.namespace }}
+    - name: {{ .Values.global.gateway.name }}
+      namespace: {{ .Values.global.gateway.namespace }}
       sectionName: websecure
   hostnames:
-    - {{ .Values.domain }}
+    - {{ .Values.global.domain }}
   rules:
     - backendRefs:
         - name: "{{ .Release.Name }}-{{ .Chart.Name }}-service"
