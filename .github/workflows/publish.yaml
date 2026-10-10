@@ -1,0 +1,22 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v4
+      - name: Package and push the chart to GHCR
+        run: |
+          helm registry login ghcr.io --username "${{ github.actor }}" --password "${{ secrets.GITHUB_TOKEN }}"
+          helm package .
+          helm push laravel-stack-*.tgz oci://ghcr.io/99linesofcode/charts
