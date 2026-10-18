@@ -4,3 +4,6 @@
 age-key.txt
 age-*.txt
 *.agekey
+
+# Helm build artefacts
+laravel-stack-*.tgz

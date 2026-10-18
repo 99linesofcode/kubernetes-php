@@ -28,7 +28,9 @@ spec:
             - containerPort: 80
           env:
             - name: SERVER_NAME
-              value: {{ .Values.host | quote }}
+              value: "http://{{ .Values.host }}"
+            - name: CADDY_GLOBAL_OPTIONS
+              value: "auto_https off"
             {{- if .Values.database.enabled }}
             - name: POSTGRES_PASSWORD
               valueFrom:
