@@ -1,0 +1,6 @@
+.git
+.gitignore
+.github
+laravel-stack-*.tgz
+secrets
+kustomize
